@@ -69,7 +69,9 @@ function App() {
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
         <p onClick={onClick} onMouseOver={onMouseOver}>Hello React!</p>
-        {/* <Suspense fallback={<div>loading....</div>}> */}
+        {/* <Suspense fallback={<div>loading....</div>}>
+        fallback 속성으로 넘긴 컴포넌트를 대신 보여줄 수 있다 */}
+      
           {visible && <SplitMe />}
         {/* </Suspense> */}
       </header>
