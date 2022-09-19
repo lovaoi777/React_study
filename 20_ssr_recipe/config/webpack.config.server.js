@@ -16,7 +16,7 @@ module.exports = {
     entry : paths.ssrIndexJs, // 엔트리 경로
     target : 'node', //node 환경에서 실행될 것이라는 점을 명시
     output : {
-        path : paths.ssrBuild, //빌드 경로
+        path : paths.ssrBuild, //빌드 경로 (절대 경로)
         filename : 'server.js' , //파일 이름
         chunkFilename : 'js/[name].chunk.js', //청크 파일 이름
         publicPath: paths.publicUrlOrPath, //정적 파일이 제공될 경로
@@ -152,5 +152,8 @@ module.exports = {
     externals : [nodeExternals({
         allowlist: [/@babel/],
     })],
+    // plugins:[
+    //     new webpack.DefinePlugin(env.stringified),
+    // ]
 };
     
