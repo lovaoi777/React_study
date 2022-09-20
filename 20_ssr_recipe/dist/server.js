@@ -1,1 +1,109 @@
-(()=>{"use strict";var e={n:r=>{var n=r&&r.__esModule?()=>r.default:()=>r;return e.d(n,{a:n}),n},d:(r,n)=>{for(var t in n)e.o(n,t)&&!e.o(r,t)&&Object.defineProperty(r,t,{enumerable:!0,get:n[t]})},o:(e,r)=>Object.prototype.hasOwnProperty.call(e,r)};const r=require("react-dom/server");var n=e.n(r);const t=require("express");var s=e.n(t);const i=require("react-router-dom/server"),u=require("react-router-dom"),o=(require("react"),require("react/jsx-runtime")),c=function(){return(0,o.jsx)("div",{children:(0,o.jsxs)("ul",{children:[(0,o.jsx)("li",{children:(0,o.jsx)(u.Link,{to:"./red",children:"Red"})}),(0,o.jsx)("li",{children:(0,o.jsx)(u.Link,{to:"./blue",children:"Blue"})})]})})},l=function(){return(0,o.jsx)("div",{className:"Red",children:"Red"})},d=function(){return(0,o.jsx)(l,{})},a=function(){return(0,o.jsx)("div",{className:"Blue",children:"Blue"})},x=function(){return(0,o.jsx)(a,{})},j=function(){return(0,o.jsxs)("div",{children:[(0,o.jsx)(c,{}),(0,o.jsx)("hr",{}),(0,o.jsxs)(u.Routes,{children:[(0,o.jsx)(u.Route,{path:"/red",element:(0,o.jsx)(d,{})}),(0,o.jsx)(u.Route,{path:"/blue",element:(0,o.jsx)(x,{})})]})]})},h=require("case-sensitive-paths-webpack-plugin");var v=e.n(h),f=s()(),p=s().static(v().resolve("./build"),{index:!1});f.use(p),f.use((function(e,r,t){var s=(0,o.jsx)(i.StaticRouter,{location:e.url,context:{},children:(0,o.jsx)(j,{})}),u=n().renderToString(s);r.send(u)})),f.listen(5e3,(function(){console.log("Running on http://localhost:5000")}))})();
+(() => {
+    'use strict';
+    var e = {
+      n: (n) => {
+        var t = n && n.__esModule ? () => n.default : () => n;
+        return e.d(t, { a: t }), t;
+      },
+      d: (n, t) => {
+        for (var r in t)
+          e.o(t, r) &&
+            !e.o(n, r) &&
+            Object.defineProperty(n, r, { enumerable: !0, get: t[r] });
+      },
+      o: (e, n) => Object.prototype.hasOwnProperty.call(e, n),
+    };
+    const n = require('react-dom/server');
+    var t = e.n(n);
+    const r = require('express');
+    var i = e.n(r);
+    const s = require('react-router-dom/server'),
+      c = require('react-router-dom'),
+      o = (require('react'), require('react/jsx-runtime')),
+      a = function () {
+        return (0, o.jsx)('div', {
+          children: (0, o.jsxs)('ul', {
+            children: [
+              (0, o.jsx)('li', {
+                children: (0, o.jsx)(c.Link, { to: './red', children: 'Red' }),
+              }),
+              (0, o.jsx)('li', {
+                children: (0, o.jsx)(c.Link, { to: './blue', children: 'Blue' }),
+              }),
+            ],
+          }),
+        });
+      },
+      l = function () {
+        return (0, o.jsx)('div', { className: 'Red', children: 'Red' });
+      },
+      u = function () {
+        return (0, o.jsx)(l, {});
+      },
+      d = function () {
+        return (0, o.jsx)('div', { className: 'Blue', children: 'Blue' });
+      },
+      h = function () {
+        return (0, o.jsx)(d, {});
+      },
+      j = function () {
+        return (0, o.jsxs)('div', {
+          children: [
+            (0, o.jsx)(a, {}),
+            (0, o.jsx)('hr', {}),
+            (0, o.jsxs)(c.Routes, {
+              children: [
+                (0, o.jsx)(c.Route, { path: '/red', element: (0, o.jsx)(u, {}) }),
+                (0, o.jsx)(c.Route, {
+                  path: '/blue',
+                  element: (0, o.jsx)(h, {}),
+                }),
+              ],
+            }),
+          ],
+        });
+      },
+      f = require('case-sensitive-paths-webpack-plugin');
+    var p = e.n(f);
+    const x = require('fs');
+    var m = e.n(x),
+      v = JSON.parse(m().readFileSync('./build/asset-manifest.json', 'utf8')),
+      b = Object.keys(v.files)
+        .filter(function (e) {
+          return /chunk\.js$/.exec(e);
+        })
+        .map(function (e) {
+          return '<script src="'.concat(v.files[e], '"></script>');
+        })
+        .join(''),
+      R = i()(),
+      k = i().static(('./build'), { index: !1 });
+    R.use(k),
+      R.use(function (e, n, r) {
+        var i = (0, o.jsx)(s.StaticRouter, {
+            location: e.url,
+            context: {},
+            children: (0, o.jsx)(j, {}),
+          }),
+          c = t().renderToString(i);
+        n.send(
+          (function (e) {
+            return '<!DOCTYPE html>\n  <html lang="en">\n  <head>\n    <meta charset="utf-8" />\n    <link shortcut icon href="/favicon.ico " />\n    <meta \n      name="viewport"\n      content="width=device-width,initial-scale=1, shrink-to-fit=no"\n      />\n    <meta name = "theme-color" content="#000000" />\n    <title>React App</title>\n    <link href="'
+              .concat(
+                v.files['main.css'],
+                '" rel="stylesheet" />\n    </head>\n    <body>\n      <noscript>You need to enable JavaScript to run this app.</noscript>\n      <div id="root">\n        ',
+              )
+              .concat(e, '\n      </div>\n      <script src="')
+              .concat(v.files['runtime-main.js'], '"></script>\n      ')
+              .concat(b, '\n      <script src="')
+              .concat(
+                v.files['main.js'],
+                '"></script>\n    </body>\n    </html>\n  ',
+              );
+          })(c),
+        );
+      }),
+      R.listen(5e3, function () {
+        console.log('Running on http://localhost:5000');
+      });
+  })();
