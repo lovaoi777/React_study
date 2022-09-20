@@ -4,7 +4,7 @@ const GET_USERS_PENDING = 'users/GET_USERS_PENDING';
 const GET_USERS_SUCCESS = 'users/GET_USERS_SUCCESS';
 const GET_USERS_FAILURE = 'users/GET_USERS_FAILURE';
 
-const getUsersPending = () => {(type : GET_USERS_PENDING)};
+const getUsersPending = () => ({type : GET_USERS_PENDING});
 const getUsersSuccess = payload => ({ type: GET_USERS_SUCCESS , payload});
 const getUsersFailure = payload => ({
     type : GET_USERS_FAILURE,
@@ -15,7 +15,7 @@ const getUsersFailure = payload => ({
 export const getUsers = () => async dispatch =>{
     try {
         dispatch(getUsersPending());
-        const response = await axios.get('https://jsonplaceholder/typicode.com/users');
+        const response = await axios.get('https://jsonplaceholder.typicode.com/users');
         dispatch(getUsersSuccess(response));
     }catch(e){
         dispatch(getUsersFailure(e));
@@ -24,8 +24,8 @@ export const getUsers = () => async dispatch =>{
 };
 
 const initalState = {
+    users:null,
     user:null,
-    user : null,
     loading : {
         users : false,
         user : false

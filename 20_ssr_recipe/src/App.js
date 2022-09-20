@@ -1,8 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import React from 'react';
 import Menu from './components/Menu';
-import RedPage from './pages/RedPage'
-import BluePage from './pages/BulePage'
+import RedPage from './pages/RedPage';
+import BluePage from './pages/BulePage';
+import UsersPage from './pages/UsersPage';
 const App = () => {
   return (
     <div>
@@ -11,6 +12,7 @@ const App = () => {
       <Routes>
       <Route path="/red" element={<RedPage />} />
       <Route path="/blue" element={<BluePage />} />
+      <Route path="/users" element={<UsersPage />} />
       </Routes>
       </div>
   );
