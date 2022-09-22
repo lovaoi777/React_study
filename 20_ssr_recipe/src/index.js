@@ -10,7 +10,7 @@ import rootReducer from './modules';
 import {Provider} from 'react-redux';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer,window.__PRELOADED_STATE__ ,applyMiddleware(thunk));// 이 값을 초기 상태로 설정합니다.
 root.render(
   <Provider store={store}>
   <BrowserRouter>
