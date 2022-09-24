@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route,Routes} from 'react-router-dom';
 import React from 'react';
 import Menu from './components/Menu';
 import RedPage from './pages/RedPage';
